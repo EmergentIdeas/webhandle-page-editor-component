@@ -24,7 +24,8 @@
   },
   "files": [
     "*.mjs",
-    "views/@webhandle",
+    "public/js",
+    "public/css",
     "README.md"
   ]
 }
