@@ -1,0 +1,9 @@
+__::start__
+
+	<div class="edit-content-inline"><p>
+	hello there, world __::dus__
+</p>
+</div>
+
+__::@webhandle/page-editor/addExternalResources__
+__::end__

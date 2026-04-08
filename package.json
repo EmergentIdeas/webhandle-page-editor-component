@@ -1,0 +1,30 @@
+{
+  "name": "@webhandle/page-editor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "initialize-webhandle-component.mjs",
+  "scripts": {
+    "test": "export webhandleConfigFile=./conf/test.json; run-webhandle-inspect ./test/start.mjs",
+    "start": "export webhandleConfigFile=./conf/test.json; run-webhandle-inspect ./initialize-webhandle-component.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:EmergentIdeas/webhandle-page-editor-component.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@webhandle/ckeditor-4": "^1.0.2",
+    "@webhandle/image-input": "^1.0.2",
+    "@webhandle/initialize-webhandle-component": "^1.0.4",
+    "@webhandle/site-editor-bridge": "^1.0.4",
+    "@webhandle/users-data": "^1.0.0"
+  },
+  "files": [
+    "*.mjs",
+    "views/@webhandle",
+    "README.md"
+  ]
+}

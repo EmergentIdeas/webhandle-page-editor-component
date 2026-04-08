@@ -1,0 +1,44 @@
+.webhandle-page-editor-controls {
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+	z-index: 100;
+
+	a {
+		display: block;
+		color: white;
+		background-color: #3c7cff;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+		font-size: 26pt;
+		font-weight: 600;
+		border-radius: 50%;
+		opacity: 0.6;
+		text-decoration: none;
+		text-align: center;
+		margin-top: 15px;
+	}
+
+	.save-button {
+		display: none;
+	}
+	
+}
+
+
+body.editing {
+	.edit-content-inline {
+		outline: dashed 1px blue;
+	}
+
+	.webhandle-page-editor-controls {
+		.save-button {
+			display: block;
+		}
+		
+		.start-editing, .property-button {
+			display: none;
+		}
+	}
+}
