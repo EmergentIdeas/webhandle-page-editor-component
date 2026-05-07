@@ -16,6 +16,7 @@ initializeWebhandleComponent.componentDir = import.meta.dirname
 initializeWebhandleComponent.defaultConfig = {
 	"publicFilesPrefix": '/' + initializeWebhandleComponent.componentName + "/files"
 	, authorization: createRequireGroupMembership("administrators")
+	, "alwaysProvideResources": false
 }
 initializeWebhandleComponent.staticFilePath = 'public'
 initializeWebhandleComponent.templatePath = 'views'
@@ -35,7 +36,10 @@ initializeWebhandleComponent.setup = async function (webhandle, config) {
 		}
 		config.authorization(req, res, (err) => {
 			if(!err) {
-				manager.addExternalResources(res.locals.externalResourceManager)
+				res.locals.externalResourceManager.pageEditor = true
+				if(config.alwaysProvideResources) {
+					manager.addExternalResources(res.locals.externalResourceManager)
+				}
 			}
 			next()
 		})
@@ -54,14 +58,16 @@ initializeWebhandleComponent.setup = async function (webhandle, config) {
 
 	webhandle.addTemplate(initializeWebhandleComponent.componentName + '/addExternalResources', (data) => {
 		let externalResourceManager = initializeWebhandleComponent.getExternalResourceManager(data)
-		manager.addExternalResources(externalResourceManager)
-		externalResourceManager.includeResource({
-			url: config.publicFilesPrefix + '/js/site-editor.mjs'
-			, mimeType: 'application/javascript'
-			, resourceType: 'module'
-			, name: initializeWebhandleComponent.componentName
-		})
-		return externalResourceManager.render()
+		if(externalResourceManager.pageEditor) {
+			manager.addExternalResources(externalResourceManager)
+			externalResourceManager.includeResource({
+				url: config.publicFilesPrefix + '/js/site-editor.mjs'
+				, mimeType: 'application/javascript'
+				, resourceType: 'module'
+				, name: initializeWebhandleComponent.componentName
+			})
+			return externalResourceManager.render()
+		}
 	})
 
 	// Allow access to the component and style code

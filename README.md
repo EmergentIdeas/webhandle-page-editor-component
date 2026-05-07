@@ -10,7 +10,7 @@ npm install @webhandle/page-editor
 
 ## Initialization
 ```js
-import pageEditorSetup from "@webhandle/page-edtior/initialize-webhandle-component.mjs"
+import pageEditorSetup from "@webhandle/page-editor/initialize-webhandle-component.mjs"
 let pageEditorManager = await pageEditorSetup(webhandle)
 ```
 
@@ -24,6 +24,7 @@ You can add the following structure to your configuration file:
 	"@webhandle/page-editor": {
 		"publicFilesPrefix": "/@webhandle/page-editor/files"
 		, "authorization": createRequireGroupMembership("administrators")
+		, "alwaysProvideResources": false
 	}
 }
 ```
